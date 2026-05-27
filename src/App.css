@@ -381,21 +381,50 @@
 }
 
 .celebration-card {
-  background: rgb(255 255 255 / 92%);
-  backdrop-filter: blur(10px);
-  border-radius: 1.5rem;
-  max-width: 26rem;
+  position: relative;
+  background: linear-gradient(
+    145deg,
+    rgb(255 248 252 / 96%) 0%,
+    rgb(255 230 242 / 94%) 45%,
+    rgb(236 222 255 / 94%) 100%
+  );
+  backdrop-filter: blur(12px);
+  border-radius: 1.75rem;
+  max-width: 28rem;
   width: 100%;
-  padding: clamp(1.25rem, 4vw, 2rem);
+  padding: clamp(1.35rem, 4vw, 2.1rem);
+  border: 2px solid rgb(255 255 255 / 85%);
   box-shadow:
-    0 20px 50px rgb(180 120 160 / 35%),
-    0 0 0 1px rgb(255 255 255 / 80%) inset;
+    0 22px 55px rgb(255 107 168 / 28%),
+    0 0 0 1px rgb(255 182 212 / 45%) inset,
+    0 0 40px rgb(255 182 212 / 25%);
   text-align: center;
   transform: translateY(12px) scale(0.96);
   opacity: 0;
   transition:
     transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s,
     opacity 0.8s ease 0.15s;
+  overflow: hidden;
+}
+
+.celebration-card::before,
+.celebration-card::after {
+  content: '💕';
+  position: absolute;
+  font-size: 1.1rem;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.celebration-card::before {
+  top: 0.75rem;
+  left: 0.9rem;
+}
+
+.celebration-card::after {
+  bottom: 0.75rem;
+  right: 0.9rem;
+  content: '✨';
 }
 
 #celebration-screen.is-visible .celebration-card {
@@ -404,18 +433,21 @@
 }
 
 .celebration-card h2 {
-  margin: 0 0 0.75rem;
+  margin: 0 0 1rem;
   font-size: clamp(1.35rem, 4vw, 1.75rem);
   color: var(--pink-deep);
+  text-shadow: 0 2px 12px rgb(255 107 168 / 25%);
 }
 
 /* ========== GIF/Image section ========== */
 .celebration-media {
-  margin: 0 auto 1rem;
-  border-radius: 1rem;
+  margin: 0 auto 1.1rem;
+  border-radius: 1.1rem;
   overflow: hidden;
   max-height: 220px;
-  background: var(--pink-soft);
+  background: linear-gradient(135deg, var(--pink-soft), rgb(232 222 255 / 90%));
+  border: 2px solid rgb(255 255 255 / 80%);
+  box-shadow: 0 8px 20px rgb(255 107 168 / 15%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -435,16 +467,57 @@
 
 /* ========== Custom message section ========== */
 .custom-message {
-  font-size: clamp(1rem, 2.8vw, 1.12rem);
+  position: relative;
+  text-align: left;
+  padding: clamp(0.9rem, 3vw, 1.15rem);
+  border-radius: 1.25rem;
+  background: linear-gradient(
+    160deg,
+    rgb(255 255 255 / 75%) 0%,
+    rgb(255 240 248 / 90%) 50%,
+    rgb(248 236 255 / 85%) 100%
+  );
+  border: 2px dashed rgb(255 158 199 / 55%);
+  box-shadow:
+    0 8px 24px rgb(255 107 168 / 12%),
+    inset 0 1px 0 rgb(255 255 255 / 90%);
+}
+
+.custom-message::before {
+  content: '💌';
+  position: absolute;
+  top: -0.55rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.35rem;
+  background: linear-gradient(135deg, #fff8fb, #ffe8f2);
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+  line-height: 1;
+  box-shadow: 0 4px 12px rgb(255 107 168 / 20%);
+}
+
+.message-line {
+  margin: 0 0 0.7rem;
+  padding: 0.65rem 0.85rem;
+  font-size: clamp(0.95rem, 2.7vw, 1.05rem);
   line-height: 1.55;
   color: var(--text);
+  border-radius: 0.9rem;
+  background: rgb(255 255 255 / 55%);
+  border: 1px solid rgb(255 214 232 / 70%);
+  box-shadow: 0 2px 8px rgb(255 107 168 / 8%);
 }
 
-.custom-message p {
-  margin: 0 0 0.65em;
+.message-line:nth-child(odd) {
+  background: rgb(255 255 255 / 70%);
 }
 
-.custom-message p:last-child {
+.message-line:nth-child(even) {
+  background: rgb(255 236 246 / 75%);
+}
+
+.message-line:last-child {
   margin-bottom: 0;
 }
 

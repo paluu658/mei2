@@ -52,7 +52,7 @@ function App() {
     }>
   >([])
 
-  const yesScale = Math.min(1 + noClickCount * 0.22, 6.5)
+  const yesScale = Math.min(1 + noClickCount * 0.14, 6.5)
   const noScale = Math.max(1 - noClickCount * 0.08, 0.35)
 
   const questionText =
@@ -220,9 +220,9 @@ function App() {
 
           {/* ========== Custom message section ========== */}
           <div className="custom-message" id="custom-message-html">
-            <p>Thank you for saying yes! 💕 I love you Mei and I promise to make you happy everyday and always ❤️</p>
-            <p>Look forward to our Valentine's Day together! And don't forget me during those 9 months apart✨</p>
-            <p>I could've done this better but I'll save it for later for more surprises hehe 🤭</p>
+            <p className="message-line">Thank you for saying yes! 💕 I love you Mei and I promise to make you happy everyday and always ❤️</p>
+            <p className="message-line">Look forward to our Valentine's Day together! And don't forget me during those 9 months apart✨</p>
+            <p className="message-line">I could've done this better but I'll save it for later for more surprises hehe 🤭</p>
           </div>
         </article>
       </section>
