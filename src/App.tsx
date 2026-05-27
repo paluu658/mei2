@@ -5,7 +5,7 @@ import './App.css'
 function App() {
   /* ========== GIF/Image section (easy single-URL edit) ========== */
   /* ========== Intro GIF section (easy single-URL edit) ========== */
-  const INTRO_GIF_URL = 'https://tenor.com/iSbSdCRlywS.gif'
+  const INTRO_GIF_URL = 'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDkxMHM2MTBrOThmZmNzc3U1bTdubGptbHQxOWZlOTN0OTZ0N2ZsNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/93mS3A87wfmOySC29W/giphy.gif'
   // ↑ Replace with your own GIF URL. Set to '' to hide the GIF.
 
   const CELEBRATION_IMAGE_URL =
