@@ -307,8 +307,7 @@ function App() {
             <p className="message-line">Thank you for saying yes! 💕 I promise to make you happy everyday and always ❤️</p>
             <p className="message-line">Look forward to our Valentine's Day together! And don't forget me during those 9 months apart✨</p>
             <p className="message-line">I could've done this better but I'll save it for later for more surprises hehe 🤭</p>
-            <p className="message-line">Myrr g chik dl Mei 🖤</p>
-            <p className="message-line">Feb hti lwnn yinn sount ny ml a myn pyn lr khae pyy pr 😔</p>
+            <p className="message-line">Myrr g chik dl Mei 🖤 Feb hti lwnn yinn sount ny ml a myn pyn lr khae pyy pr 😔</p>
           </div>
         </article>
       </section>
