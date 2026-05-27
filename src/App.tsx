@@ -10,14 +10,23 @@ function App() {
   /* ========== Button logic / funny text ========== */
   const noMessages = useMemo(
     () => [
-      'Are you sure?',
-      'Really sure?',
-      'Last chance...',
-      "You can't escape 😭",
-      'The Yes button is getting ideas...',
-      'Okay but what if you misclicked?',
-      "I'm not crying, you're crying.",
-      'Plot twist: resistance is futile.',
+      'no m hnate pr nk',
+      'tgl htet hnate dr lr',
+      'yk sk dll',
+      "yes hnate lo ya thy dl nw",
+      'yes lyy hnate lyk prrr',
+      'mhrr hnate mi dr m lrr',
+      "hrrr",
+      'yes lyk pr tot',
+      'pls say yes :(',
+      'yes m pyw m chin m pee buu nw',
+      'nel" lyy tg m chik bu lr :(',
+      'last chance... :(((',
+      'noooo...',
+      'no pay m hnate bu kwr kyay nk lr :p',
+      ':p',
+      'mei m chik ll ako chik dl',
+      'I love you',
     ],
     [],
   )
@@ -46,14 +55,14 @@ function App() {
   const questionText =
     noClickCount > 0
       ? noMessages[Math.min(noClickCount - 1, noMessages.length - 1)]
-      : 'Will you be my Valentine?'
+      : 'Will you be my Valentine in upcoming February after your semester? 💕'
 
   const subtitleText =
     noClickCount >= noMessages.length
-      ? 'There is no escape from the Yes button. 💘'
+      ? 'Yes m hnate m chin pyy m hwt bu. 😛'
       : noClickCount > 0
-        ? 'Still thinking? The universe is watching...'
-        : 'Choose wisely... 💕'
+        ? 'Still thinking? Just say yes... The universe is watching...'
+        : 'Take your time... and say yes... 💕'
 
   const moveNoButton = () => {
     // Keep "No" in an outer ring, away from center where "Yes" grows.
@@ -148,9 +157,9 @@ function App() {
         aria-label="Welcome"
       >
         <div className="intro-card">
-          <p className="intro-eyebrow">psst... something cute is waiting</p>
-          <h1 className="intro-title">Ready for a little magic? ✨</h1>
-          <p className="intro-subtitle">Music + surprises inside 💕</p>
+          <p className="intro-eyebrow">psst... something cute is waiting hehe</p>
+          <h1 className="intro-title">Ready for a little surprise? ✨</h1>
+          <p className="intro-subtitle">click to see what's inside 💕</p>
           <button type="button" className="btn-enter" onClick={handleEnterSite}>
             Open my heart
           </button>
@@ -229,8 +238,9 @@ function App() {
 
           {/* ========== Custom message section ========== */}
           <div className="custom-message" id="custom-message-html">
-            <p>Yayyyyyyyy.</p>
-            <p>Now we can officially be extra cute together. ✨</p>
+            <p>Thank you for saying yes! 💕 I love you Mei and I promise to make you happy everyday and always ❤️</p>
+            <p>Look forward to our Valentine's Day together! And don't forget me during those 9 months apart✨</p>
+            <p>I could've done this better but I'll save it for later for more surprises hehe 🤭</p>
           </div>
         </article>
       </section>
