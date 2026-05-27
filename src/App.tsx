@@ -9,7 +9,7 @@ function App() {
   // ↑ Replace with your own GIF URL. Set to '' to hide the GIF.
 
   const CELEBRATION_IMAGE_URL =
-    'https://media.giphy.com/media/MDJ9Ib6vE0a4yDMpDM/giphy.gif'
+    'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdTd3ZDIxMm5iNGdqbTQ5dzZrZXpjcXp5YzRtNzZmYnIxc2t0cWpqOCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/A0Zt7yuDULiy4ofmVD/giphy.gif'
 
   /* ========== Button logic / funny text ========== */
   const noMessages = useMemo(
