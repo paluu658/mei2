@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import BackgroundMusic, { type BackgroundMusicHandle } from './BackgroundMusic'
 import './App.css'
 
@@ -30,7 +30,7 @@ function App() {
       'no pay m hnate bu kwr kyay nk lr :p',
       ':p',
       'mei m chik ll ako chik dl',
-      'I love you',
+      'yes bl kyn tot dl xD',
     ],
     [],
   )
@@ -52,12 +52,19 @@ function App() {
     }>
   >([])
 
+  /* ========== Intro falling hearts (until user enters site) ========== */
+  const [introHearts, setIntroHearts] = useState<
+    Array<{ id: number; left: number; duration: number; emoji: string; sizeRem: number; drift: number }>
+  >([])
+  const introHeartIdRef = useRef(0)
+
   /* Yes covers No only after 17 clicks (tune YES_MAX_SCALE if needed) */
   const NO_CLICKS_UNTIL_COVER = 17
   const YES_MAX_SCALE = 1.94
   const YES_SCALE_STEP = (YES_MAX_SCALE - 1) / NO_CLICKS_UNTIL_COVER
   const yesScale = Math.min(1 + noClickCount * YES_SCALE_STEP, YES_MAX_SCALE)
   const noScale = Math.max(1 - noClickCount * 0.05, 0.5)
+  const showNoButton = noClickCount < NO_CLICKS_UNTIL_COVER
 
   const questionText =
     noClickCount > 0
@@ -116,6 +123,59 @@ function App() {
     }
   }, [isCelebrating])
 
+  useEffect(() => {
+    if (hasEntered) {
+      setIntroHearts([])
+      return
+    }
+
+    const heartEmojis = ['💕', '💖', '💗', '💘', '❤️', '🩷', '💝', '♥️']
+
+    const spawnBatch = () => {
+      const batchSize = 5
+      const newHearts: Array<{
+        id: number
+        left: number
+        duration: number
+        emoji: string
+        sizeRem: number
+        drift: number
+      }> = []
+
+      for (let i = 0; i < batchSize; i += 1) {
+        const id = introHeartIdRef.current++
+        const duration = 3.8 + Math.random() * 4.2
+        newHearts.push({
+          id,
+          left: Math.random() * 100,
+          duration,
+          emoji: heartEmojis[Math.floor(Math.random() * heartEmojis.length)] ?? '💕',
+          sizeRem: 0.75 + Math.random() * 0.85,
+          drift: (Math.random() - 0.5) * 36,
+        })
+      }
+
+      setIntroHearts((prev) => {
+        const next = [...prev, ...newHearts]
+        return next.length > 140 ? next.slice(-120) : next
+      })
+
+      newHearts.forEach((h) => {
+        window.setTimeout(() => {
+          setIntroHearts((prev) => prev.filter((p) => p.id !== h.id))
+        }, (h.duration + 0.5) * 1000)
+      })
+    }
+
+    spawnBatch()
+    const intervalId = window.setInterval(spawnBatch, 160)
+
+    return () => {
+      window.clearInterval(intervalId)
+      setIntroHearts([])
+    }
+  }, [hasEntered])
+
   const handleEnterSite = () => {
     musicRef.current?.play()
     setHasEntered(true)
@@ -141,6 +201,24 @@ function App() {
         className={`intro-gate ${hasEntered ? 'is-hidden' : ''}`}
         aria-label="Welcome"
       >
+        <div className="intro-hearts-layer" aria-hidden="true">
+          {introHearts.map((h) => (
+            <span
+              key={h.id}
+              className="intro-falling-heart"
+              style={
+                {
+                  left: `${h.left}%`,
+                  fontSize: `${h.sizeRem}rem`,
+                  animationDuration: `${h.duration}s`,
+                  ['--heart-drift' as string]: `${h.drift}px`,
+                } as CSSProperties
+              }
+            >
+              {h.emoji}
+            </span>
+          ))}
+        </div>
         <div className="intro-card">
           {/* ========== GIF/Image section (intro) ========== */}
           {INTRO_GIF_URL ? (
@@ -189,15 +267,17 @@ function App() {
             >
               Yes
             </button>
-            <button
-              type="button"
-              className="btn btn-no"
-              id="btn-no"
-              onClick={handleNoClick}
-              style={{ transform: `scale(${noScale})` }}
-            >
-              No
-            </button>
+            {showNoButton ? (
+              <button
+                type="button"
+                className="btn btn-no"
+                id="btn-no"
+                onClick={handleNoClick}
+                style={{ transform: `scale(${noScale})` }}
+              >
+                No
+              </button>
+            ) : null}
           </div>
         </div>
       </section>
