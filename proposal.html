@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>One very important question…</title>
+    <link rel="stylesheet" href="proposal.css" />
+
+    <!--
+      Optional background music (uncomment to enable):
+      1. Add your audio file next to this HTML or use a direct URL.
+      2. In proposal.js, uncomment the play() block inside onYesClick().
+
+    <audio id="bg-music" loop preload="auto">
+      <source src="your-music.mp3" type="audio/mpeg" />
+    </audio>
+    -->
+  </head>
+  <body>
+    <!-- ========== LAUNCH SCREEN ========== -->
+    <section id="launch-screen" aria-label="Question">
+      <div class="launch-inner">
+        <h1 id="question-header">Will you be my Valentine?</h1>
+        <p id="subtitle-hint" class="subtitle-hint">Choose wisely… 💕</p>
+        <div class="button-row">
+          <button type="button" class="btn btn-yes" id="btn-yes">Yes</button>
+          <button type="button" class="btn btn-no" id="btn-no">No</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECOND SCREEN ========== -->
+    <section
+      id="celebration-screen"
+      aria-live="polite"
+      aria-label="Celebration"
+    >
+      <article class="celebration-card">
+        <h2>Yay! You said yes! 🎉</h2>
+
+        <!-- ========== GIF/Image section ==========
+             Option A: Edit CELEBRATION_IMAGE_URL in proposal.js (recommended).
+             Option B: Set src below directly (overrides JS if you set src here). -->
+        <div id="celebration-media-wrap" class="celebration-media is-hidden">
+          <img id="celebration-img" src="" alt="Celebration" loading="lazy" />
+        </div>
+
+        <!-- ========== Custom message section ==========
+             Edit the paragraphs below anytime — no JavaScript needed. -->
+        <div class="custom-message" id="custom-message-html">
+          <p>You just made my whole day brighter.</p>
+          <p>Now we can officially be extra cute together. ✨</p>
+        </div>
+      </article>
+    </section>
+
+    <div id="fx-layer" aria-hidden="true"></div>
+
+    <script src="proposal.js"></script>
+  </body>
+</html>
