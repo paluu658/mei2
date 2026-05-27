@@ -304,9 +304,10 @@ function App() {
 
           {/* ========== Custom message section ========== */}
           <div className="custom-message" id="custom-message-html">
-            <p className="message-line">Thank you for saying yes! 💕 I love you Mei and I promise to make you happy everyday and always ❤️</p>
+            <p className="message-line">Thank you for saying yes! 💕 I promise to make you happy everyday and always ❤️</p>
             <p className="message-line">Look forward to our Valentine's Day together! And don't forget me during those 9 months apart✨</p>
             <p className="message-line">I could've done this better but I'll save it for later for more surprises hehe 🤭</p>
+            <p className="message-line">Myrr g chik dl Mei 🖤</p>
           </div>
         </article>
       </section>
