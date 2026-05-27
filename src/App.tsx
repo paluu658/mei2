@@ -4,6 +4,10 @@ import './App.css'
 
 function App() {
   /* ========== GIF/Image section (easy single-URL edit) ========== */
+  /* ========== Intro GIF section (easy single-URL edit) ========== */
+  const INTRO_GIF_URL = 'https://media.giphy.com/media/l4FGpPki5v2Bcd6Ss/giphy.gif'
+  // ↑ Replace with your own GIF URL. Set to '' to hide the GIF.
+
   const CELEBRATION_IMAGE_URL =
     'https://media.giphy.com/media/MDJ9Ib6vE0a4yDMpDM/giphy.gif'
 
@@ -157,6 +161,13 @@ function App() {
         aria-label="Welcome"
       >
         <div className="intro-card">
+          {/* ========== GIF/Image section (intro) ========== */}
+          {INTRO_GIF_URL ? (
+            <div className="intro-media">
+              <img src={INTRO_GIF_URL} alt="Intro" />
+            </div>
+          ) : null}
+
           <p className="intro-eyebrow">psst... something cute is waiting hehe</p>
           <h1 className="intro-title">Ready for a little surprise? ✨</h1>
           <p className="intro-subtitle">click to see what's inside 💕</p>
