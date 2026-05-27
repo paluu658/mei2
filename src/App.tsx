@@ -52,8 +52,12 @@ function App() {
     }>
   >([])
 
-  const yesScale = Math.min(1 + noClickCount * 0.14, 6.5)
-  const noScale = Math.max(1 - noClickCount * 0.08, 0.35)
+  /* Yes covers No only after 17 clicks (tune YES_MAX_SCALE if needed) */
+  const NO_CLICKS_UNTIL_COVER = 17
+  const YES_MAX_SCALE = 1.94
+  const YES_SCALE_STEP = (YES_MAX_SCALE - 1) / NO_CLICKS_UNTIL_COVER
+  const yesScale = Math.min(1 + noClickCount * YES_SCALE_STEP, YES_MAX_SCALE)
+  const noScale = Math.max(1 - noClickCount * 0.05, 0.5)
 
   const questionText =
     noClickCount > 0
