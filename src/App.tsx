@@ -40,7 +40,6 @@ function App() {
   const musicRef = useRef<BackgroundMusicHandle>(null)
   const [isCelebrating, setIsCelebrating] = useState(false)
   const [isLeavingLaunch, setIsLeavingLaunch] = useState(false)
-  const [noPosition, setNoPosition] = useState({ x: 72, y: 60 })
   const [particles, setParticles] = useState<
     Array<{
       id: number
@@ -67,22 +66,6 @@ function App() {
       : noClickCount > 0
         ? 'Still thinking? Take your time...  The universe is watching... 💕'
         : 'I dare you to say no :P'
-
-  const moveNoButton = () => {
-    // Keep "No" in an outer ring, away from center where "Yes" grows.
-    const safeRadius = Math.min(38, 18 + noClickCount * 2.8)
-    const angle = Math.random() * Math.PI * 2
-    const randomRadius = safeRadius + Math.random() * (48 - safeRadius)
-
-    let nextX = 50 + Math.cos(angle) * randomRadius
-    let nextY = 50 + Math.sin(angle) * randomRadius * 0.72
-
-    // Clamp to keep button fully inside launch area.
-    nextX = Math.max(10, Math.min(90, nextX))
-    nextY = Math.max(18, Math.min(84, nextY))
-
-    setNoPosition({ x: nextX, y: nextY })
-  }
 
   useEffect(() => {
     if (!isCelebrating) return
@@ -128,12 +111,6 @@ function App() {
       setParticles([])
     }
   }, [isCelebrating])
-
-  useEffect(() => {
-    if (noClickCount === 0) return
-    moveNoButton()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [noClickCount])
 
   const handleEnterSite = () => {
     musicRef.current?.play()
@@ -213,13 +190,7 @@ function App() {
               className="btn btn-no"
               id="btn-no"
               onClick={handleNoClick}
-              onMouseEnter={moveNoButton}
-              onTouchStart={moveNoButton}
-              style={{
-                left: `${noPosition.x}%`,
-                top: `${noPosition.y}%`,
-                transform: `translate(-50%, -50%) scale(${noScale})`,
-              }}
+              style={{ transform: `scale(${noScale})` }}
             >
               No
             </button>

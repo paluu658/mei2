@@ -307,11 +307,12 @@
 }
 
 .button-row {
-  display: grid;
-  place-items: center;
-  position: relative;
-  width: min(92vw, 760px);
-  min-height: clamp(11rem, 34vh, 20rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 4vw, 2rem);
+  width: 100%;
+  min-height: clamp(8rem, 20vh, 12rem);
   margin: 0 auto;
 }
 
@@ -339,7 +340,7 @@
   color: #fff;
   padding: 0.85em 2.2em;
   font-size: clamp(1.05rem, 3vw, 1.25rem);
-  z-index: 2;
+  z-index: 3;
 }
 
 .btn-yes:hover {
@@ -348,13 +349,12 @@
 }
 
 .btn-no {
-  position: absolute;
   background: #fff;
   color: var(--pink-deep);
   padding: 0.65em 1.6em;
   font-size: clamp(0.95rem, 2.6vw, 1.05rem);
   border: 2px solid rgb(255 107 168 / 45%);
-  z-index: 3;
+  z-index: 1;
 }
 
 .btn-no:hover {
