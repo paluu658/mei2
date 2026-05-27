@@ -229,7 +229,7 @@ function App() {
 
           {/* ========== Custom message section ========== */}
           <div className="custom-message" id="custom-message-html">
-            <p>You just made my whole day brighter.</p>
+            <p>Yayyyyyyyy.</p>
             <p>Now we can officially be extra cute together. ✨</p>
           </div>
         </article>
