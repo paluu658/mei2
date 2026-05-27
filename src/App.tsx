@@ -5,7 +5,7 @@ import './App.css'
 function App() {
   /* ========== GIF/Image section (easy single-URL edit) ========== */
   /* ========== Intro GIF section (easy single-URL edit) ========== */
-  const INTRO_GIF_URL = 'https://media.giphy.com/media/l4FGpPki5v2Bcd6Ss/giphy.gif'
+  const INTRO_GIF_URL = 'https://tenor.com/iSbSdCRlywS.gif'
   // ↑ Replace with your own GIF URL. Set to '' to hide the GIF.
 
   const CELEBRATION_IMAGE_URL =
@@ -65,8 +65,8 @@ function App() {
     noClickCount >= noMessages.length
       ? 'Yes m hnate m chin pyy m hwt bu. 😛'
       : noClickCount > 0
-        ? 'Still thinking? Just say yes... The universe is watching...'
-        : 'Take your time... and say yes... 💕'
+        ? 'Still thinking? Take your time...  The universe is watching... 💕'
+        : 'I dare you to say no :P'
 
   const moveNoButton = () => {
     // Keep "No" in an outer ring, away from center where "Yes" grows.
